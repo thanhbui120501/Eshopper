@@ -18,7 +18,7 @@ return new class extends Migration
             $table->tinyInteger('gender');
             $table->string('phone',20);
             $table->string('email',100);
-            $table->string('password',20);
+            $table->string('password');
             $table->integer('purchased_product');
             $table->string('address',50)->nullable();
             $table->string('province',50)->nullable();
@@ -36,11 +36,11 @@ return new class extends Migration
             $table->id()->primary();
             $table->string('admin_id',100)->unique();
             $table->string('fullname',100);
-            $table->string('avatar',250);
-            $table->tinyInteger('gender');
-            $table->string('phone',20);
+            $table->string('avatar',250)->nullable();
+            $table->tinyInteger('gender')->nullable();
+            $table->string('phone',20)->nullable();
             $table->string('email',100);
-            $table->string('password',20);
+            $table->string('password');
             $table->string('address',50)->nullable();
             $table->string('province',50)->nullable();
             $table->string('district',50)->nullable();

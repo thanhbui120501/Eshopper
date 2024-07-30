@@ -67,7 +67,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link me-2" href="../pages/sign-up.html">
+                  <a class="nav-link me-2" href="{{ route('admin.register') }}">
                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     Sign Up
                   </a>
@@ -103,20 +103,29 @@
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
-                  <form role="form">
+                  <form action= "{{ route('admin.auth') }}"  method="POST" >
+                  @csrf
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
+                      <input name="email" type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
                     </div>
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Password" aria-label="Password">
+                      <input name="password" type="password" class="form-control form-control-lg" placeholder="Password" aria-label="Password">
                     </div>
                     <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe">
+                      <input class="form-check-input" type="checkbox" id="rememberMe" name="remember_token">
                       <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
                     </div>
+                    <!-- @if ($errors->has('email'))
+                      <span class="error">
+                          {{ $errors->first('email') }}
+                      </span>
+                      <script>
+                        alert('{{ $errors->first("email") }}');
+                      </script>
+                    @endif -->
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
